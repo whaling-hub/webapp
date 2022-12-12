@@ -48,7 +48,7 @@ class AuthMessage {
   }
 
   public getMessageByAddr(addr: string) {
-    return this._store[addr];
+    return this._store[addr]?.message ?? '';
   }
 
   public deleteMessageByAddr(addr: string) {
