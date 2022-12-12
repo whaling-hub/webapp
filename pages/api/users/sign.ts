@@ -15,7 +15,7 @@ export default function handler(
   const { address } = req.query;
 
   if (req.method !== "GET" || !address || !address.length) {
-    res.status(400).end();
+    res.status(400).json({ success: false, message: 'address is required'});
     return;
   }
   
