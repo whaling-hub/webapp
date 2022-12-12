@@ -4,3 +4,5 @@ export const SUPPORTED_CHAIN = {
     icon: ''
   }
 }
+
+export const LOGIN_SIGN_MESSAGE = '';
