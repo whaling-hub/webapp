@@ -31,7 +31,7 @@ export default async function handler(
 ) {
   const { address, signature } = req.body ?? {};
   if (req.method !== "POST" || !address || !signature) {
-    res.status(400).end();
+    res.status(400).json({ message: 'request error', success: false});
     return;
   }
 
