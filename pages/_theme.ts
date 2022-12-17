@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
+import { Button } from '../themes/Button';
 
 const colors = {
   primary: "#0090d9",
@@ -14,6 +15,11 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  colors,
+  components: {
+    Button,
+  }
+});
 
 export default theme;

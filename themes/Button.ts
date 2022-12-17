@@ -1,13 +1,15 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 
-const Button = defineStyleConfig({
+export const Button = defineStyleConfig({
   // The styles all button have in common
-  baseStyle: {},
+  baseStyle: {
+    background: "#baff26",
+    color: "black",
+  },
   // Two variants: outline and solid
   variants: {
     outline: {
-      border: "1 px solid",
-      borderColor: "baff26",
+      border: "1 px solid #baff26",
       color: "black",
     },
     solid: {
@@ -16,7 +18,7 @@ const Button = defineStyleConfig({
     },
     ghost: {
       bg: "transparent",
-      color: "black"
+      color: "black",
     },
   },
   // The default size and variant values
