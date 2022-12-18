@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FaGithub, FaTwitter } from "react-icons/fa";
+import { MAX_PAGE_WIDTH } from "../../constant";
 import { Logo } from "./Logo";
 
 export const Footers = () => (
@@ -15,7 +16,7 @@ export const Footers = () => (
     role="contentinfo"
     py={{ base: "12", md: "16" }}
     px="4"
-    maxWidth="7xl"
+    maxWidth={MAX_PAGE_WIDTH}
   >
     <Stack spacing={{ base: "4", md: "5" }}>
       <Stack justify="space-between" direction="row" align="center">

@@ -6,12 +6,13 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Stack,
+  Text,
 } from "@chakra-ui/react";
-import styled from "@emotion/styled/types/base";
+import styled from "@emotion/styled";
 import { FC } from "react";
+import { BiChevronDown } from "react-icons/bi";
 import { SUPPORTED_CHAIN } from "../../constant";
-
+import { EthereumIcon } from '../../components/icons/chainIcons'
 interface UserWalletProps {
   isConnected: boolean;
   wallet: {
@@ -33,9 +34,8 @@ const showSupportedNetwork = () => {
   return <div></div>
 }
 
-const WalletInfo = styled(Box)`
-
-`;
+const WalletInfo = styled(Button)({
+});
 
 const CurrentChain: FC<CurrentChainProps> = ({ chainId }) => {
   const isSupportChainId = Object.keys(SUPPORTED_CHAIN).includes(chainId.toString());
@@ -50,18 +50,26 @@ const UserWallet: FC<UserWalletProps> = ({
   chainId,
 }) => {
   return (
-    <Flex>
+    <Flex ml="2">
       <CurrentChain chainId={chainId} />
       {isConnected ? (
-        <Menu>
-          <MenuButton as={WalletInfo}>{ wallet.address }</MenuButton>
+        <Menu size="sm" autoSelect={false}>
+          <MenuButton
+            as={WalletInfo}
+            size="sm"
+            variant="outline"
+            leftIcon={<EthereumIcon boxSize={5} />}
+            rightIcon={<BiChevronDown />}
+          >
+            {wallet.address}
+          </MenuButton>
           <MenuList>
             <MenuItem>断开连接</MenuItem>
           </MenuList>
         </Menu>
       ) : (
-        <Button colorScheme="yellow" variant="solid" size="sm">
-          连接钱包
+        <Button colorScheme="blue" variant="solid" size="sm">
+          Connect Wallet
         </Button>
       )}
     </Flex>
