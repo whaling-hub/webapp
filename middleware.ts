@@ -8,14 +8,11 @@ export function middleware(request: NextRequest) {
   const jwtToken = request.cookies.get("jwt_token")?.value;
 
   if (!jwtToken || !verifyToken(jwtToken)) {
-    return new NextResponse(
-      JSON.stringify({ success: false, message: "authentication failed" }),
-      { status: 401, headers: { "content-type": "application/json" } }
-    );
+    return NextResponse.redirect(new URL("/", request.url));
   }
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: "/bots/:path*",
+  matcher: "/api/bots/:path*",
 };
